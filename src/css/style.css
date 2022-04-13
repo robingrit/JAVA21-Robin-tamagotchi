@@ -1,0 +1,24 @@
+
+
+h1{
+    text-align: center;
+    background-color: aqua solid 3px;
+    
+}
+h2{
+    flex-basis: 50%;
+}
+
+img{
+    background-color: aqua solid 3px;
+    flex-basis: 10%;
+    
+    
+}
+
+.boxen{ 
+    display: flex;
+    flex-wrap: wrap;
+    
+    
+}

@@ -11,44 +11,56 @@
   <body>
     <h1>Tamagotchi</h1>
 
-    <h2>Döp din Tamagochi</h2>
+    <h2>Pick name forTamagochi</h2>
     <div id="form">
         <form onsubmit="event.preventDefault();">
             <select id="type" name="creature">
-                <option value="air">air</option>
-                <option value="earth">earth</option>
-                <option value="water">water</option>
+                <option value="air">Air</option>
+                <option value="earth">Earth</option>
+                <option value="water">Water</option>
               </select>
             <input type="text">
             <button id="name">Choose name</button>
         </form>
 
     </div>
-    <h1></h1>
+    
 
     <div>
         <p>0</p>
         
     </div>
-    <div class="boxen">        
-      <div>
-        <img alt="Tamagotchi" width="200" height="300" />
-      </div>
-      <div>
-        <h2>Hunger</h2>
-        <h2 id="hunger"></h2>
-        <h2>Happines</h2>
-        <h2 id="happines"></h2>
-      </div>
-      <div id="poop">
+    <div class="flex">
+      
+      <div class="boxen">        
+        <div>
+          <img alt="Tamagotchi" width="200" height="300" />
+        </div>
+        <div>
+          <h2>Hunger</h2>
+          <h2 id="hunger"></h2>
+          <h2>Happines</h2>
+          <h2 id="happines"></h2>
+          <div class="buttonDiv">
+            <button id="hungerBtn">Hunger</button>
+            <button id="happinesBtn">Happines</button>
+          </div>
+        </div>
+        
+        
+        
         
       </div>
-     
       
+      <div id="poop">
+          
+      </div>
+      
+      
+      
+      
+
     </div>
-    <div class="buttonDiv">
-      <button id="hungerBtn">Hunger</button>
-      <button id="happinesBtn">Happines</button>
-    </div>
+    
   </body>
 </html>

@@ -4,14 +4,13 @@ export class Tamagochi {
   #time = 0;
   #running = false;
   #intervalID;
-  #poopmeter= 0;
+  #poopmeter = 0;
 
   happyBtn = document.getElementById("happinesBtn");
   hungerBtn = document.getElementById("hungerBtn");
 
-
-  constructor(name,type) {
-    this.name =name;
+  constructor(name, type) {
+    this.name = name;
     this.type = type;
   }
   start() {
@@ -21,6 +20,7 @@ export class Tamagochi {
     document.getElementById("happines").innerText = this.#Happines;
     this.#time = 0;
     document.querySelector("p").innerText = this.#time;
+
     this.#intervalID = setInterval(this.#update.bind(this), 2000);
     this.#running = true;
   }
@@ -55,74 +55,54 @@ export class Tamagochi {
     }
   }
   feed() {
-    if(this.#poopmeter == 4){
-      
+    if (this.#poopmeter == 4) {
       const image = document.createElement("img");
       image.style.width = "100px";
       image.style.height = "150px";
-      
-      const poope = document.getElementById("poop")
+
+      const poope = document.getElementById("poop");
       let poop = new URL("../img/poop.png", import.meta.url);
-      image.src =poop.href;
-      poope.appendChild(image)
-      if(this.#Hunger > 0){
+      image.src = poop.href;
+      poope.appendChild(image);
+      if (this.#Hunger > 0) {
         this.#Hunger--;
-
       }
-    
 
-      
       this.#poopmeter = 0;
       document.getElementById("hunger").innerText = this.#Hunger;
-
-    }
-    else if(this.#Hunger > 0){
+    } else if (this.#Hunger > 0) {
       this.#Hunger--;
       this.#poopmeter++;
       document.getElementById("hunger").innerText = this.#Hunger;
-
-    }
-    else{
+    } else {
       console.log("overfeed");
-      if(this.#Happines <10){
+      if (this.#Happines < 10) {
         this.#Happines--;
       }
-       
-       this.#poopmeter++;
-       document.getElementById("happines").innerText = this.#Happines;
-      
+
+      this.#poopmeter++;
+      document.getElementById("happines").innerText = this.#Happines;
     }
-    
   }
   giveLove() {
-    if(this.#Happines < 10){
-      this.#Happines++; 
-
-    }
-    else{
-      if(this.#Hunger <10){
+    if (this.#Happines < 10) {
+      this.#Happines++;
+    } else {
+      if (this.#Hunger < 10) {
         this.#Hunger++;
-
       }
-      
-
     }
     document.getElementById("hunger").innerText = this.#Hunger;
     document.getElementById("happines").innerText = this.#Happines;
   }
 
-  whattype(){
-    if(this.type == "air"){
+  whattype() {
+    if (this.type == "air") {
       return this.dragonType();
-
-    }
-    else if(this.type == "earth"){
+    } else if (this.type == "earth") {
       return this.EarthType();
-
-    }
-    else{ 
-       return this.WaterType();
-
+    } else {
+      return this.WaterType();
     }
   }
   dragonType() {
@@ -141,10 +121,7 @@ export class Tamagochi {
     var imgUrl = new Array();
     imgUrl[0] = new URL("../img/dog/scheferDog.gif", import.meta.url);
     imgUrl[1] = new URL("../img/dog/Doge.gif", import.meta.url);
-    imgUrl[2] = new URL(
-      "../img/dog/Dog3.gif",
-      import.meta.url
-    );
+    imgUrl[2] = new URL("../img/dog/Dog3.gif", import.meta.url);
     imgUrl[3] = new URL("../img/dog/ShitzuDog.gif", import.meta.url);
 
     var number = Math.floor(Math.random() * imgUrl.length);
@@ -154,11 +131,7 @@ export class Tamagochi {
     var imgUrl = new Array();
     imgUrl[0] = new URL("../img/water/fish.gif", import.meta.url);
     imgUrl[1] = new URL("../img/water/valros.gif", import.meta.url);
-    imgUrl[2] = new URL(
-      "../img/water/whale.gif",
-      import.meta.url
-    );
-    
+    imgUrl[2] = new URL("../img/water/whale.gif", import.meta.url);
 
     var number = Math.floor(Math.random() * imgUrl.length);
     return imgUrl[number].href;
